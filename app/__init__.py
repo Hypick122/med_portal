@@ -11,7 +11,8 @@ app = Flask(__name__)
 app.config.from_object(os.environ.get('FLASK_ENV') or 'config.BaseConfig')
 app.config['DOC_FOLDER'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'docs/')
 
-db.bind(**app.config['DB'])
+db.bind('sqlite', ':sharedmemory:')
+# db.bind(**app.config['DB'])
 db.generate_mapping(create_tables=True)
 
 Pony(app)

@@ -7,15 +7,37 @@
     <title>MedPortal</title>
 </head>
 <body class="page-form">
-    <form class="form login-form">
+    <div class="form login-form">
         <h1 class="form-title">Авторизация</h1>
         <p class="form-text">Добро пожаловать обратно, мы скучали по вам!</p>
-        <div class="wrapper">
-            <input type="email" id="email" placeholder="Электронная почта" class="form-input form-email">
-            <input type="password" id="password" placeholder="Пароль" class="form-input form-password">
-            <button class="form-button" type="button">Войти</button>
-        </div>
+<!--        <div class="wrapper">-->
+<!--            <input type="email" id="email" placeholder="Электронная почта" class="form-input form-email">-->
+<!--            <input type="password" id="password" placeholder="Пароль" class="form-input form-password">-->
+<!--            <button class="form-button" type="button">Войти</button>-->
+<!--        </div>-->
+        <form action="/login" method="post">
+            {{form_login.hidden_tag()}}
+            <div class="input-group">
+                {{ form_login.login }}
+                {{ form_login.login.label }}
+            </div>
+            <div class="input-group">
+                {{ form_login.password }}
+                {{ form_login.password.label }}
+            </div>
+
+            {{ form_login.submit }}
+            <!-- <div>
+                <button type="submit" class="submit-button">Войти</button>
+            </div> -->
+        </form>
         <p class="form-more-text">Нет аккаунта?<br><a href="register.html" class="form-link">Создать</a></p>
-    </form>
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+        <div class="{{ category }}">
+            <span class="close-button" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

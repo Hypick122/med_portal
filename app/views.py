@@ -10,7 +10,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 from pony.orm import commit, db_session, desc
 
 from app import app
-from app.forms import PostForm, RegistrationForm, SettingsForm, TaskForm
+from app.forms import LoginForm, RegistrationForm
 from models import Users
 from . import utils
 
@@ -19,16 +19,26 @@ from . import utils
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('home.html', current_user=current_user)
+    return render_template('index.html', current_user=current_user)
 
 
-@app.route('/profile')
-def profile():
-    return redirect(url_for('profile'))
+# @app.route('/profile')
+# def profile():
+#     return redirect(url_for('profile'))
 
 
-@app.route('/auth', methods=['POST'])
-def auth_menu():
+@app.route('/login')
+def login_menu():
+    return render_template('login.html', form_login=LoginForm())
+
+
+@app.route('/register')
+def reg_menu():
+    return render_template('register.html', form_reg=RegistrationForm())
+
+
+@app.route('/login', methods=['POST'])
+def login_post():
     login = request.form.get('login')
     password = request.form.get('password')
 
@@ -44,23 +54,23 @@ def auth_menu():
     return redirect(url_for('profile'))
 
 
-@app.route('/reg', methods=['POST'])
-def reg_menu():
-    login = request.form.get('login')
-    password = request.form.get('password')
-    get_hash_password = utils.hash_password(password)
+@app.route('/register', methods=['POST'])
+def reg_post():
+    form_reg = RegistrationForm()
+    # login = request.form.get('login')
+    # password = request.form.get('password')
+    get_hash_password = utils.hash_password(form_reg.password.data)
 
-    user = Users.get(login=login)
+    user = Users.get(login=form_reg.login.data)
+    print(user)
     if user:
         flash('Данный пользователь уже существует', '')
     else:
-        with db_session:
-            Users(login=login, hash_password=get_hash_password)
-            commit()
+        new_user = Users(login=form_reg.login, hash_password=get_hash_password)
+        commit()
+        return redirect(url_for('login_menu'))
 
-        return redirect(url_for('auth'))
-
-    return redirect(url_for('reg'))
+    return redirect(url_for('login_menu'))
 
 
 @app.route('/logout')
