@@ -184,6 +184,16 @@
     transform: unset;
 }
 
+.close-button { display: none;}
+
+.alert.success, .alert.error {
+text-align: center;
+margin-top: 16px;
+        font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+ }
+
 @media screen and (max-height: 600px) {
     .page-form {
         height: unset;
@@ -230,7 +240,7 @@
                 <button type="submit" class="submit-button">Войти</button>
             </div> -->
         </form>
-        <p class="form-more-text">Нет аккаунта?<br><a href="register.html" class="form-link">Создать</a></p>
+        <p class="form-more-text">Нет аккаунта?<br><a href="register" class="form-link">Создать</a></p>
         {% for category, message in get_flashed_messages(with_categories=true) %}
         <div class="{{ category }}">
             <span class="close-button" onclick="this.parentElement.style.display='none';">&times;</span>

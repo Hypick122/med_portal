@@ -196,6 +196,18 @@
     }
 }
 
+#submit {
+    cursor: not-allowed;
+}
+
+.alert.success, .alert.error {
+text-align: center;
+margin-top: 16px;
+        font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+ }
+
 @media screen and (max-width: 375px) {
     .form {
         padding-right: 15px;
@@ -228,7 +240,26 @@
 
             {{ form_reg.submit }}
         </form>
-        <p class="form-more-text">Уже есть аккаунт? <a href="login.html" class="form-link">Войти</a></p>
+        <p class="form-more-text">Уже есть аккаунт? <a href="login" class="form-link">Войти</a></p>
     </div>
+<script>
+    window.onload = function() {
+    const login = document.getElementById('login');
+    const password = document.getElementById('password');
+    const submit = document.getElementById('submit');
+
+    if(password) {
+        password.oninput = function() {
+            if(submit) {
+                if(password.value.match(/^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/)) {
+                    submit.removeAttribute('disabled');
+                } else {
+                    submit.setAttribute('disabled', 'disabled');
+                }
+            }
+        }
+    }
+}
+</script>
 </body>
 </html>

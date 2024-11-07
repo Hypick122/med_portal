@@ -17,6 +17,6 @@ class RegistrationForm(FlaskForm):
 
 
 class SearchForm(FlaskForm):
-    inn = StringField("", render_kw={"placeholder": " "})
+    inn = StringField("", render_kw={"placeholder": "Название компании"})
 
     submit = SubmitField("Найти", render_kw={"class": "sumbit-btn"})
