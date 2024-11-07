@@ -65,17 +65,19 @@
     transition: .3s;
 }
 
+.form-button:hover {
+    background-color: #3c5fde;
+}
+
 .form-button:active {
     transform: scale(.95);
 }
 
 .form-more-text {
     font-family: 'OpenSansSemiBold', sans-serif;
-    text-align: right;
+    text-align: center;
     color: var(--black-color);
     margin-top: 30px;
-    margin-left: auto;
-    max-width: 160px;
 }
 
 .form-link {
@@ -84,4 +86,68 @@
 
 .form-link:hover {
     text-decoration: none;
+}
+
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .user {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+}
+
+.header .logout {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.form-search {
+    display: flex;
+    align-items: center;
+}
+
+.form-search .form-input {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-search .form-button {
+    min-width: 200px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 54px;
+}
+
+.form-search .form-button:active {
+    transform: unset;
+}
+
+@media screen and (max-height: 600px) {
+    .page-form {
+        height: unset;
+        width: unset;
+    }
+
+    .form {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 }
