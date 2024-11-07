@@ -6,6 +6,9 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    background-image: url('../public/images/Ellipse.png');
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
 .form .form-title {
