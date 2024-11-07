@@ -10,30 +10,10 @@ db = Database()
 class Users(db.Entity, UserMixin):
     id = PrimaryKey(int, auto=True)
 
-    key = Required(uuid.UUID, default=uuid.uuid4)
-    expiry = Required(int, size=64)
-
-    token = Optional(str)
-    captcha_key = Optional(str)
-
-    links = Required(StrArray, default=[])
-
-    status = Required(str, default="none")
-    created_at = Required(int, size=64, default=int(time.time()))
+    login = Required(str)
+    hash_password = Required(str)
 
 
-class Tasks(db.Entity):
+class Documents(db.Entity):
     id = PrimaryKey(int, auto=True)
-    name = Optional(str, nullable=True)
     user_id = Required(int)
-
-    params = Required(Json)
-    changes = Required(Json)
-
-
-class Configs(db.Entity):
-    id = PrimaryKey(int, auto=True)
-    name = Optional(str, nullable=True)
-    user_id = Required(int)
-
-    params = Required(Json)
