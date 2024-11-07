@@ -3,7 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
+<!--    <link rel="stylesheet" href="../styles/style.css">-->
+        <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../public/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansSemiBold';
+    src: url('../public/fonts/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../public/fonts/OpenSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansMedium';
+    src: url('../public/fonts/OpenSans-Medium.ttf');
+}
+
+:root {
+    --blue-color: #1F41BB;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+}
+
+.page-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.form .form-title {
+    font-family: 'OpenSansBold', sans-serif;
+    font-size: 30px;
+    color: var(--blue-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form .form-text {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+    text-align: center;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.form .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-group input {
+    font-family: 'OpenSansMedium', sans-serif;
+    font-size: 16px;
+    color: var(--black-color);
+    padding: 15px;
+    height: 54px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-color);
+    background-color: #F1F4FF;
+    outline: 0;
+    transition: .3s;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.input-group label {
+    display: none;
+}
+
+.form-input::placeholder {
+    color: #494949;
+}
+
+.form-input:focus {
+    box-shadow: 0 10px 20px #CBD6FF;
+}
+
+.sumbit-btn {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 15px;
+    color: var(--white-color);
+    height: 50px;
+    background-color: var(--blue-color);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: .3s;
+    width: 100%;
+}
+
+.sumbit-btn:hover {
+    background-color: #3c5fde;
+}
+
+.sumbit-btn:active {
+    transform: scale(.95);
+}
+
+.form-more-text {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    text-align: center;
+    color: var(--black-color);
+    margin-top: 30px;
+}
+
+.form-link {
+    color: inherit;
+}
+
+.form-link:hover {
+    text-decoration: none;
+}
+
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .user {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+}
+
+.header .logout {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.form-search {
+    display: flex;
+    align-items: center;
+}
+
+.form-search .form-input {
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-search .form-button {
+    min-width: 200px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 54px;
+}
+
+.form-search .form-button:active {
+    transform: unset;
+}
+
+@media screen and (max-height: 600px) {
+    .page-form {
+        height: unset;
+        width: unset;
+    }
+
+    .form {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+    </style>
     <title>MedPortal</title>
 </head>
 <body class="page-form">
@@ -29,7 +228,7 @@
 
             {{ form_reg.submit }}
         </form>
-        <p class="form-more-text">Уже есть аккаунт?<br><a href="login.html" class="form-link">Войти</a></p>
+        <p class="form-more-text">Уже есть аккаунт? <a href="login.html" class="form-link">Войти</a></p>
     </div>
 </body>
 </html>

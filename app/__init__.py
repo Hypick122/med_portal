@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config.from_object(os.environ.get('FLASK_ENV') or 'config.BaseConfig')
 app.config['DOC_FOLDER'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'docs/')
 
-db.bind('sqlite', ':sharedmemory:')
+db.bind('sqlite', 'database.sqlite', create_db=True)
 # db.bind(**app.config['DB'])
 db.generate_mapping(create_tables=True)
 
