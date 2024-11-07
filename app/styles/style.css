@@ -1,0 +1,87 @@
+@import url('./base.css');
+
+.page-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.form .form-title {
+    font-family: 'OpenSansBold', sans-serif;
+    font-size: 30px;
+    color: var(--blue-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form .form-text {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 20px;
+    color: var(--black-color);
+    text-align: center;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.form .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-input {
+    font-family: 'OpenSansMedium', sans-serif;
+    font-size: 16px;
+    color: var(--black-color);
+    padding: 15px;
+    height: 54px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-color);
+    background-color: #F1F4FF;
+    outline: 0;
+    transition: .3s;
+}
+
+.form-input::placeholder {
+    color: #494949;
+}
+
+.form-input:focus {
+    box-shadow: 0 10px 20px #CBD6FF;
+}
+
+.form-button {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    font-size: 15px;
+    color: var(--white-color);
+    height: 50px;
+    background-color: var(--blue-color);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    outline: 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-button:active {
+    transform: scale(.95);
+}
+
+.form-more-text {
+    font-family: 'OpenSansSemiBold', sans-serif;
+    text-align: right;
+    color: var(--black-color);
+    margin-top: 30px;
+    margin-left: auto;
+    max-width: 160px;
+}
+
+.form-link {
+    color: inherit;
+}
+
+.form-link:hover {
+    text-decoration: none;
+}
